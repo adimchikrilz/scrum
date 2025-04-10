@@ -1,0 +1,781 @@
+/* styles/App.css */
+:root {
+  --primary-color: #3366cc;       /* Blue for buttons, wallet status */
+  --secondary-color: #ff6600;     /* Orange accent */
+  --warning-color: #f39c12;       /* Not used here, kept for consistency */
+  --danger-color: #e74c3c;        /* Not used here */
+  --success-color: #2ecc71;       /* Not used here */
+  --neutral-color: #95a5a6;       /* Disabled button */
+  --light-gray: #ecf0f1;          /* Placeholder, borders */
+  --dark-gray: #34495e;           /* Not used here */
+  --white: #ffffff;               /* Text, background */
+  --black: #000000;               /* Button text */
+  --dark-bg: #1a1a1a;             /* Header background */
+  --green-button: #aaff00;        /* Hover effects, accents */
+  --font-main: 'Nunito', 'Segoe UI', sans-serif;   /* Body text */
+  --font-heading: 'Poppins', 'Arial', sans-serif;  /* Logo, nav */
+}
+
+/* Reset default margins and ensure full height */
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  background-color: var(--dark-bg);
+  color: var(--white);
+}
+
+/* Top-level app container (from App.js) */
+.app {
+  background-color: var(--dark-bg);
+  min-height: 100vh;
+}
+
+/* Header styling */
+.header {
+  background-color: var(--dark-bg);
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* Container for header content */
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Logo styling */
+.logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.logo img {
+  height: 60px;
+  margin-right: 0.5rem;
+}
+
+/* Navigation styling */
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav li {
+  margin-left: 1.5rem;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: var(--green-button);
+}
+
+/* Right-side header elements */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Language selector */
+.language-selector select {
+  padding: 0.5rem;
+  border: 1px solid var(--light-gray);
+  border-radius: 4px;
+  background-color: var(--dark-bg);
+  color: white;
+  font-family: var(--font-main);
+  cursor: pointer;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  padding-right: 2rem;
+}
+
+.language-selector select:focus {
+  outline: none;
+  border-color: var(--green-button);
+}
+
+.language-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Space between icon and select */
+  position: relative; /* Ensure proper positioning */
+  color: #000000;
+}
+
+.language-icon {
+  color: var(--white); /* White color to match Figma */
+  font-size: 1.5rem; /* Slightly larger to match Figma design */
+  line-height: 1; /* Ensure proper alignment */
+}
+
+.language-selector select {
+  background-color: transparent;
+  color: var(--white);
+  border: 1px solid var(--light-gray);
+  border-radius: 5px;
+  padding: 0.3rem 0.5rem;
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  cursor: pointer;
+  appearance: none; /* Remove default dropdown arrow */
+  padding-right: 1.5rem; /* Space for custom arrow */
+}
+
+.language-selector::after {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: gray;
+  font-size: 0.7rem;
+  pointer-events: none; /* Prevent interaction with the arrow */
+}
+
+.language-selector select:hover {
+  border-color: var(--green-button);
+  background-color: #000000;
+}
+
+.language-selector select:focus {
+  outline: none;
+  background-color: #000000;
+  border-color: var(--green-button);
+}
+
+
+.wallet-status .connected {
+  background-color: transparent;
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 2px solid green; /* Added green border */
+}
+
+/* Connect wallet button */
+.connect-wallet {
+  background-color: transparent;
+  color: var(--white);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: 2px solid green;
+}
+
+.connect-wallet:hover {
+  background-color: var(--green-button);
+  color: var(--black);
+}
+
+/* Quick Check Page */
+/* .quick-check-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px); 
+  background-color: var(--dark-bg);
+}
+
+.quick-check-page .container {
+  text-align: center;
+}
+
+.quick-check-page h1 {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--white);
+}
+
+.quick-check-page .wallet-status {
+  margin-bottom: 1rem;
+}
+
+.real-or-fake {
+  font-size: 1.2rem;
+  color: var(--light-gray);
+  margin-bottom: 1rem;
+}
+
+.quick-check-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #333;
+  padding: 0.5rem;
+  border-radius: 25px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.claim-input {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  border: none;
+  background-color: transparent;
+  color: var(--white);
+  font-size: 1rem;
+  outline: none;
+}
+
+.claim-input::placeholder {
+  color: var(--light-gray);
+}
+
+.claim-input:disabled {
+  background-color: transparent;
+  cursor: not-allowed;
+}
+
+.plus-button {
+  background-color: var(--green-button);
+  color: var(--black);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.plus-button:disabled {
+  background-color: var(--neutral-color);
+  cursor: not-allowed;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.offline-toggle {
+  background-color: var(--green-button);
+  color: var(--black);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.offline-toggle:disabled {
+  background-color: var(--neutral-color);
+  cursor: not-allowed;
+}
+
+.offline-icon {
+  font-size: 1rem;
+}
+
+.verify-button {
+  background-color: var(--green-button);
+  color: var(--black);
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.verify-button:hover {
+  background-color: #99cc00;
+}
+
+.verify-button:disabled {
+  background-color: var(--neutral-color);
+  cursor: not-allowed;
+} */
+
+/* Quick Check Page */
+.quick-check-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px); 
+  background-color: var(--dark-bg);
+}
+
+.quick-check-page .container {
+  text-align: center;
+}
+
+.quick-check-page h1 {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--white);
+}
+
+.quick-check-page .wallet-status {
+  margin-bottom: 5rem; 
+}
+
+.real-or-fake {
+  font-size: 1.2rem;
+  color: var(--light-gray);
+  margin-bottom: 1rem; 
+}
+
+.quick-check-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #333;
+  padding: 3.5rem 1rem; 
+  border-radius: 25px;
+  width: 100%;
+  max-width: 800px; 
+}
+
+.claim-input {
+  flex: 1;
+  padding: 1rem 1.5rem; 
+  border: none;
+  background-color: transparent;
+  color: var(--white);
+  font-size: 1rem;
+  outline: none;
+  margin-top: -6rem;
+  margin-right: 1rem;
+}
+
+.claim-input::placeholder {
+  color: var(--light-gray);
+}
+
+.claim-input:disabled {
+  background-color: transparent;
+  cursor: not-allowed;
+}
+
+.plus-button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-bottom: -4rem;
+  margin-left: -18rem;
+  border: 2px solid green; /* Added green border */
+}
+
+.plus-button:disabled {
+  background-color: var(--neutral-color);
+  cursor: not-allowed;
+}
+
+.offline-toggle {
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  margin-bottom: -4rem;
+  border: 2px solid green; /* Added green border */
+}
+
+.offline-toggle:disabled {
+  background-color: var(--neutral-color);
+  cursor: not-allowed;
+}
+
+.offline-icon {
+  font-size: 1.2rem; /* Slightly larger to match Figma */
+  position: relative;
+}
+
+.offline-icon::before {
+  content: "☁️"; /* Cloud emoji */
+  font-family: inherit;
+  /* Remove other styling that was specific to Font Awesome */
+  font-weight: 900;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Match the button text color */
+}
+
+.offline-icon {
+  color: transparent; /* Hide the original symbol */
+  width: 1.2rem; /* Match the font-size */
+  height: 1.2rem;
+}
+
+.verify-button {
+  background-color: var(--green-button);
+  color: var(--black);
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 2rem;
+  margin-bottom: -2rem;
+  margin-left: 25rem;
+}
+
+.verify-button:hover {
+  background-color: #99cc00;
+}
+
+.verify-button:disabled {
+  background-color: var(--neutral-color);
+  cursor: not-allowed;
+}
+
+/* Result States */
+.result-container {
+  background-color: #2a2a2a;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.result-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.result-title.true {
+  color: var(--success-color);
+}
+
+.result-title.false {
+  color: var(--danger-color);
+}
+
+.result-title.uncertain {
+  color: #ff9900; /* Orange for uncertain */
+}
+
+.result-explanation {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.blockchain-info {
+  font-size: 0.9rem;
+  color: var(--light-gray);
+  margin-bottom: 1.5rem;
+}
+
+.check-another-button {
+  background-color: var(--green-button);
+  color: var(--black);
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.check-another-button:hover {
+  background-color: #99cc00;
+}
+
+.learn-more-link {
+  display: block;
+  margin-top: 1rem;
+  color: var(--green-button);
+  text-decoration: underline;
+  font-size: 0.9rem;
+  background-color: transparent;
+}
+
+.learn-more-link:hover {
+  color: var(--green-button);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  color: var(--light-gray);
+  font-size: 0.9rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header .container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .main-nav ul {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .header-right {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .quick-check-page h1 {
+    font-size: 2rem;
+  }
+
+  .result-title {
+    font-size: 2rem;
+  }
+
+  .input-container {
+    max-width: 100%;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+/* Navigation styling */
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav li {
+  margin-left: 1.5rem;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: var(--green-button);
+}
+
+/* Active link style */
+.main-nav a.active {
+  color: var(--green-button); /* Highlight color to match Figma */
+  font-weight: 700; /* Make it bold to stand out */
+ 
+}
+
+/* Verified Claims Page */
+.verified-claims-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px); /* Adjust for header height */
+  background-color: var(--dark-bg); /* #1a1a1a */
+  padding: 2rem 0; /* Add padding to avoid content touching edges */
+}
+
+.verified-claims-page .container {
+  text-align: center;
+  width: 100%;
+  max-width: 800px; /* Match the input container width for consistency */
+}
+
+.verified-claims-page h1 {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--white);
+}
+
+.claims-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Space between cards */
+}
+
+.no-claims {
+  font-family: var(--font-main);
+  font-size: 1rem;
+  color: var(--light-gray);
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* Rest of the existing styles for .claim-card, etc., remain unchanged */
+
+
+.claim-card {
+  display: flex;
+  align-items: center;
+  background-color: #2a2a2a; /* Dark card background */
+  border-radius: 10px;
+  padding: 1rem;
+  gap: 1rem; /* Space between image, content, and status */
+}
+
+.claim-image-placeholder {
+  width: 80px;
+  height: 80px;
+  background-color: #d3d3d3; /* Light gray placeholder */
+  border-radius: 5px;
+}
+
+.claim-content {
+  flex: 1;
+  text-align: left;
+}
+
+.claim-text {
+  font-family: var(--font-main);
+  font-size: 1rem;
+  color: var(--white);
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+/* Make the first part of the claim text bold (using a pseudo-element for simplicity) */
+.claim-text::first-line {
+  font-weight: 700;
+}
+
+.claim-meta {
+  display: flex;
+  gap: 1rem; /* Space between timestamp, date, and wallet */
+  font-size: 0.9rem;
+  color: var(--light-gray);
+}
+
+.claim-timestamp,
+.claim-date,
+.claim-wallet {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.meta-icon {
+  font-size: 0.9rem;
+  color: var(--light-gray);
+}
+
+.claim-status {
+  display: flex;
+  align-items: center;
+}
+
+.status-icon {
+  font-size: 1.5rem;
+}
+
+.status-icon.true {
+  color: var(--success-color); /* Green for true */
+}
+
+.status-icon.false {
+  color: var(--danger-color); /* Red for false */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .verified-claims-page h1 {
+    font-size: 2rem;
+  }
+
+  .claim-card {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .claim-image-placeholder {
+    width: 60px;
+    height: 60px;
+  }
+
+  .claim-status {
+    align-self: flex-end;
+  }
+}
