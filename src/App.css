@@ -725,37 +725,6 @@ footer {
   text-align: center;
 }
 
-.connect-wallet-button {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  margin-left: 10px;
-}
-
-.connect-wallet-button:hover {
-  background-color: var(--primary-hover-color);
-}
-
-.disconnect-button {
-  background-color: var(--secondary-color);
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  margin-left: 10px;
-}
-
-.disconnect-button:hover {
-  background-color: var(--secondary-hover-color);
-}
-
-
 
 /* Media Query for Mobile (≤576px) to Match Figma Design */
 @media (max-width: 576px) {
