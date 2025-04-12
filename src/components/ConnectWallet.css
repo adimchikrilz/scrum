@@ -1,0 +1,117 @@
+.connect-wallet-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+  }
+  
+  .modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .modal-content {
+    position: relative;
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    margin: 10% auto;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .modal-header h2 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: #fff;
+    margin: 0;
+  }
+  
+  .guest-mode-button {
+    background-color: #d4ff00;
+    color: #000;
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .guest-mode-button:hover {
+    background-color: #b8e600;
+  }
+  
+  .wallet-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .wallet-option {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: 2px solid #d4ff00;
+    border-radius: 8px;
+    padding: 0.8rem;
+    color: #fff;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .wallet-option:hover {
+    background-color: #3a3a3a;
+  }
+  
+  .wallet-option img {
+    width: 24px;
+    height: 24px;
+    margin-right: 1rem;
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 576px) {
+    .modal-content {
+      width: 95%;
+      margin: 20% auto;
+      padding: 1rem;
+    }
+  
+    .modal-header h2 {
+      font-size: 1.2rem;
+    }
+  
+    .guest-mode-button {
+      padding: 0.3rem 0.8rem;
+      font-size: 0.8rem;
+    }
+  
+    .wallet-option {
+      padding: 0.6rem;
+      font-size: 0.9rem;
+    }
+  
+    .wallet-option img {
+      width: 20px;
+      height: 20px;
+      margin-right: 0.8rem;
+    }
+  }
